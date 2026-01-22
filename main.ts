@@ -288,7 +288,7 @@ export default class XPostSaverPlugin extends Plugin {
 
 			// Find the tweet text paragraph
 			const tweetParagraph = doc.querySelector(
-				'blockquote.twitter-tweet p[lang="en"]'
+				'blockquote.twitter-tweet p'
 			);
 
 			if (tweetParagraph) {
@@ -343,11 +343,11 @@ export default class XPostSaverPlugin extends Plugin {
 
 			// Generate filename from author name and first 20 chars of tweet
 			const sanitizedAuthor = tweetData.author_name
-				.replace(/[^a-zA-Z0-9\s]/g, "")
+				.replace(/[\[\]#\^|\\\/:\?\s]/g, "")
 				.trim();
 			const first20Chars = tweetData.tweet_text
 				.substring(0, 20)
-				.replace(/[^a-zA-Z0-9\s]/g, "")
+				.replace(/[\[\]#\^|\\\/:\?\s]/g, "")
 				.trim();
 			const filename = `${sanitizedAuthor} - ${first20Chars}....md`;
 
