@@ -349,7 +349,7 @@ export default class XPostSaverPlugin extends Plugin {
 				.substring(0, 20)
 				.replace(/[\[\]#\^|\\\/:\?\s]/g, "")
 				.trim();
-			const filename = `${sanitizedAuthor} - ${first20Chars}....md`;
+			const filename = `${first20Chars} - ${sanitizedAuthor}.md`;
 
 			// Create full file path
 			const fullPath = folderPath
